@@ -1,0 +1,733 @@
+@import url('https://fonts.googleapis.com/css?family=Gloock|Marcellus+SC|Bodoni+Moda|Poiret+One|La+Belle+Aurore|Jost:100,200,300,400,500,600|Italiana|Qwitcher+Grypen:400,700|Allura|Josefin+Sans:100,200,300,400,500,600|Playfair+Display+SC ');
+
+/*Oswald|Marcellus|Bodoni+Moda|Italiana|Antic+Didone|Cormorant+SC|Noto+Serif+Display|Licorice|Meow+Script|Allura|Alex+Brush*/
+
+:root {
+	--main-text-color: rgba(58,60,59, 1);
+	--highlight-color: rgba(58,60,59, 0.75);
+	--floral-color: #FFFAF0;
+	--snow-color: #FFFAFA;
+	--brown-safe-color: #cc6600;
+	--gray-color: #3A3C3B;
+	--sepia-bg-color: rgba(239, 219, 203, 0.25);
+	--pink-color: rgba(249, 204, 202, 0.25);
+	--pampas-color: rgb(233, 233, 233);
+	--gold-color: rgb(244, 207, 161);
+	--blue-color: rgb(88, 109, 127);
+}
+
+@viewport{
+	zoom: 1.0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0 0 0 0;
+	background-color: var(--pampas-color);
+	overflow-x: hidden;
+	height: auto;
+	width: auto;
+}
+
+/************************/
+/* Page load animations */
+/************************/ 
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes slideUp {
+	0% {
+	transform: translateY(100%);
+	}
+	100% {
+	transform: translateY(0);
+	}
+}
+
+/*************/
+/* Slideshow */
+/*************/
+
+.carousel {
+	position: fixed;
+	width: 50vw;
+	height: 100vh;
+	margin-right: auto;
+}
+
+ul.slides {
+	display: block;
+	position: relative;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	list-style: none;
+}
+
+.slides * {
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+}
+
+ul.slides input {
+	display: none; 
+}
+
+
+.slide-container { 
+	display: block; 
+}
+
+.slide-image {
+	display: flex;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	opacity: 0;
+	transition: all .7s ease-in-out;
+	justify-content: center;
+}   
+
+.slide-image img {
+	flex-shrink: 0; /* Prevent image from shrinking */
+	min-width: 100%; /* Ensure the image covers the container */
+	min-height: 100%; /* Ensure the image covers the container */
+	object-fit: cover; /* Cover the container with the image */
+}
+
+.carousel-controls {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	font-size: 100px;
+	line-height: 600px;
+	color: #fff;
+}
+
+.carousel-controls label {
+	display: none;
+	position: absolute;
+	padding: 0 20px;
+	opacity: 0;
+	transition: opacity .2s;
+	cursor: pointer;
+}
+
+.slide-image:hover + .carousel-controls label{
+	opacity: 0.5;
+}
+
+.carousel-controls label:hover {
+	opacity: 1;
+}
+
+.carousel-controls .prev-slide {
+	width: 49%;
+	text-align: left;
+	left: 0;
+}
+
+.carousel-controls .next-slide {
+	width: 49%;
+	text-align: right;
+	right: 0;
+}
+
+.carousel-dots {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 20px;
+	z-index: 999;
+	text-align: center;
+}
+
+.carousel-dots .carousel-dot {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #fff;
+	opacity: 0.5;
+	margin: 10px;
+}
+
+input:checked + .slide-container .slide-image {
+	opacity: 1;
+	transform: scale(1);
+	transition: opacity 1s ease-in-out;
+}
+
+input:checked + .slide-container .carousel-controls label {
+	 display: block; 
+}
+
+input#img-1:checked ~ .carousel-dots label#img-dot-1,
+input#img-2:checked ~ .carousel-dots label#img-dot-2,
+input#img-3:checked ~ .carousel-dots label#img-dot-3,
+input#img-4:checked ~ .carousel-dots label#img-dot-4,
+input#img-5:checked ~ .carousel-dots label#img-dot-5,
+input#img-6:checked ~ .carousel-dots label#img-dot-6 {
+	opacity: 1;
+}
+
+
+input:checked + .slide-container .nav label { display: block; }
+
+@media (max-width: 768px) {
+	.carousel {
+		display: none;
+	}
+}
+
+/******************/
+/* Navigation bar */
+/******************/
+
+.menu-burger > * {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+}
+
+/* Invisible click handler indicating whether menu is collapsed */
+.menu-burger input {
+	height: 48px;
+	margin: 0;
+	opacity: 0;
+	width: 48px;
+	z-index: 4;
+}
+
+/* Burger */
+
+.menu-burger svg {
+	height: 36px;
+	width: 36px;
+	z-index: 3;
+	color: var(--main-text-color);
+	filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Menu items */
+
+ul.menu-burger__item-list {
+	font-family: Gloock, serif;
+	font-weight: 400;
+	font-size: 2em;
+	color: var(--main-text-color);
+	background-color: var(--gold-color);
+	bottom: 0;
+	color: var(--main-text-color);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	transform: translate(50vw, 0);
+	transition: transform 0.5s cubic-bezier(0.9, 0, 0.1, 1);
+	width: 50vw;
+	right: 0;
+	z-index: 2;
+	display: flex;
+	flex-direction: column; /* Stack items vertically */
+	align-items: center;
+	justify-content: center;
+
+}
+
+.list-container {
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	border: solid;
+	text-align: center;
+}
+
+ul.menu-burger__item-list li {
+	vertical-align: middle;
+	margin: 2%;
+}
+
+/* Menu fold-out */
+input:checked ~ .menu-burger__item-list {
+	transform: none;
+}
+
+/* Change line color on fold-out */
+.menu-burger input:checked ~ svg line {
+	stroke: #3c3836;
+}
+
+/* Set transform origins to center of respective line */
+.menu-burger svg line:nth-of-type(1)
+{
+	transform-origin: center 6px;
+}
+
+.menu-burger svg line:nth-of-type(2)
+{
+	transform-origin: center 12px;
+}
+
+.menu-burger svg line:nth-of-type(3)
+{
+	transform-origin: center 18px;
+}
+
+/* Line animations */
+.menu-burger svg line {
+	transition-duration: 0.5s;
+	transition-property:
+	stroke,
+	opacity,
+	transform;
+	transition-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
+}
+
+/* Fade out middle line on fold-out */
+.menu-burger input:checked ~ svg line:nth-of-type(2) {
+	opacity: 0;
+	transform: scale(0.2);
+}
+
+/* Center top and bottom lines vertically, then rotate by 45 degrees in opposing directions on fold-out */
+.menu-burger input:checked ~ svg line:nth-of-type(1)
+{
+	transform: translate(0, 6px) rotate(45deg);
+}
+
+.menu-burger input:checked ~ svg line:nth-of-type(3)
+{
+	transform: translate(0, -6px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+	ul.menu-burger__item-list {
+		transform: translate(100vw, 0);
+		width: 100vw;
+	}
+}
+
+/*******************/
+/* Text formatting */
+/*******************/
+
+.fleuron {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+}
+
+.fleuron img {
+	height: 40px;
+	width: auto;
+}
+
+h1 {
+	font-family: 'La Belle Aurore', cursive;
+	font-size: 2.5em;
+	font-variant: normal;
+	font-weight: 400;
+	text-align: center;
+	line-height: 0.75em;
+	text-decoration: none;
+}
+
+h2 {
+	font-family: Gloock, serif;
+	font-weight: 400;
+	font-size: 2em;
+	color: var(--main-text-color);
+}
+
+h3 {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 1em;
+	color: var(--main-text-color);
+}
+
+p, q {
+	font-size: 1em;
+	text-align: justify;
+}
+
+.text p {
+	text-indent: 2em;
+}
+
+q:before { 
+	content: open-quote;
+} 
+
+q:after { 
+	content: close-quote;
+}
+
+a.hyperlink {
+	color: var(--main-text-color);
+	text-decoration: none;
+}
+
+a.external {
+	color: var(--main-text-color);
+	text-decoration-style: dashed;
+	text-underline-offset: 4px;
+}
+
+a.hyperlink:hover, a.external:hover {
+	color: var(--highlight-color);
+	text-decoration: none;
+	-webkit-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+
+.superscript {
+	vertical-align: super;
+	font-size: smaller;
+}
+
+::-moz-selection { /* Code for Firefox */
+	color: var(--white-color);
+	background: var(--teal-color);
+}
+
+::selection {
+	color: var(--white-color);
+	background: var(--teal-color);
+}
+
+/***************/
+/* Splash page */
+/***************/
+
+#splash {
+	display: flex;
+	position: relative;
+	width: 50vw;
+	height: 100vh;
+	margin-left: auto;
+	background-image: url('assets/oscar-helgstrand-warm.jpg');
+	background-size: cover; /* Cover the entire container */
+	background-position: center;
+	position: relative;
+	justify-content: center; /* Horizontally center the inner container */
+	align-items: center;
+}
+
+#splash::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(234, 235, 237, 0.6); /* Adjust the last value (0.5) to set the transparency */
+	z-index: 0; /* Make sure the pseudo-element is above the background image */
+}
+
+#splash-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+	background-color: transparent;
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	padding: 0;
+	z-index: 1;
+}
+
+.splash-text {
+	display: block;
+	font-family: 'La Belle Aurore', cursive;
+	font-size: 5em;
+	font-variant: normal;
+	font-weight: 400;
+	text-align: center;
+	line-height: 0.6em;
+	text-decoration: none;
+	margin: 10px 0;
+	opacity: 0; /* Start with 0 opacity */
+	animation: fadeIn 1s ease-in-out forwards; /* Animation duration and easing */
+}
+
+  /* Apply delay to each line */
+.splash-text:nth-child(1) {
+	animation: fadeIn 1s ease-in-out 0s forwards;
+}
+
+.splash-text:nth-child(2) {
+	animation: fadeIn 1s ease-in-out 0.25s forwards;
+}
+
+.splash-text:nth-child(3) {
+	animation: fadeIn 1s ease-in-out 0.5s forwards;
+}
+
+#splash-date {
+	text-align: center;
+	font-size: 1.5em;
+	line-height: 1em;
+	position: absolute;
+	bottom: 0;
+	left: 20px;
+	z-index: 1;
+}
+
+#splash-image {
+	display: block;
+	margin: 0 auto;
+	height: 360px;
+	width: 360px;
+}
+
+@media (max-width: 768px) {
+	#splash {
+		width: 100vw;
+	}
+}
+
+/************/
+/* Sections */
+/************/
+
+.line-box {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+}
+
+.line-box hr.left {
+	flex: 1;
+	border: none;
+	height: 1px;
+	width: 80%;
+	background-color: #000; /* You can customize the color */
+	margin: 0 20px 0 0; /* Adjust the margin as needed */
+}
+
+.line-box hr.right {
+	flex: 1;
+	border: none;
+	height: 1px;
+	width: 80%;
+	background-color: #000; /* You can customize the color */
+	margin: 0 0 0 20px; /* Adjust the margin as needed */
+}
+
+.page {
+	position: relative;
+	width: 50vw;
+	margin-left: auto;
+	padding: 5%;
+}
+
+.text {
+	padding: 0px 10% 20px 10%;
+	text-align: left;
+}
+
+.float {
+	padding: 0px 10% 20px 10%;
+}
+
+@media (max-width: 768px) {
+	.page {
+		width: 100%;
+	}
+}
+
+/***********/
+/* Buttons */
+/***********/
+
+.button-container {
+	text-align: center;
+	width: 100%;
+}
+
+button {
+	color: var(--main-text-color);
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 1em;
+	text-align: center;
+	background-color: transparent;
+	border: 2px solid var(--main-text-color);
+	height: 4em;
+	width: 8em;
+	transition: all 0.5s;
+	cursor: pointer;
+}
+
+button:hover {
+	color: var(--pampas-color);
+	background-color: var(--main-text-color);
+}
+
+button:active {
+	color: var(--main-text-color);
+	background-color: transparent;
+}
+
+/*******************/
+/* Entourage table */
+/*******************/
+
+.entourage {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+}
+
+.entourage td.bio-left {
+	text-align: center;
+	vertical-align: middle;
+	padding-right: 20px;
+}
+
+.entourage td.bio-right {
+	text-align: center;
+	vertical-align: middle;
+	padding-left: 20px;
+}
+
+.entourage td.profile {
+	text-align: center;
+	vertical-align: middle;
+	padding: 0;
+	margin: 0;
+}
+
+.profile {
+	width: 150px; /* Set the width and height of the profile picture */
+	height: 150px;
+	border-radius: 50%; /* Make the container circular */
+	overflow: hidden; /* Hide any overflow from the image */
+	margin: auto;
+}
+
+.profile img {
+	width: 100%; /* Ensure the image fills the circular container */
+	height: auto; /* Maintain aspect ratio */
+}
+
+span.profile-name {
+	font-family: 'La Belle Aurore', cursive;
+	font-size: 1.5em;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+}
+
+span.profile-role {
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 1em;
+	font-weight: 400;
+}
+
+.entourage td.parents {
+	text-align: center;
+	vertical-align: middle;
+	padding: 0;
+	margin: 0;
+}
+
+/**********************/
+/* Schedule of events */
+/**********************/
+
+.schedule {
+	width: 100%;
+	margin: 0 auto;
+	border-collapse: collapse;
+}
+
+.schedule td {
+	text-align: left;
+	vertical-align: top;
+}
+
+.schedule-time {
+	font-family: Gloock, serif;
+	font-weight: 400;
+	font-size: 1.4em;
+	color: var(--main-text-color);
+	line-height: 2em;
+	margin-right: 20px;
+
+}
+
+/**********/
+/* Images */
+/**********/
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img.inline {
+	margin: 0px 30px 30px 0px;
+	float: left;
+	width: 40%;
+	height: auto;
+}
+
+img.story {
+	display: inline;
+	width: 50%;
+}
+
+.divider {
+	width: 80%;
+	max-width: 768px;
+	top: -20px;
+}
+
+@media (max-width: 720px) {
+	img.framed {
+		width: 80%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		float: none;
+	}
+	.story {
+		width: 100%;
+	}
+}
