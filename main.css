@@ -6,14 +6,14 @@
 	--main-text-color: rgba(58,60,59, 1);
 	--highlight-color: rgba(58,60,59, 0.75);
 	--floral-color: #FFFAF0;
-	--snow-color: #FFFAFA;
+	--chalk-color: #F4F5FA;
 	--brown-safe-color: #cc6600;
 	--gray-color: #3A3C3B;
 	--sepia-bg-color: rgba(239, 219, 203, 0.25);
 	--pink-color: rgba(249, 204, 202, 0.25);
 	--pampas-color: rgb(233, 233, 233);
 	--gold-color: rgb(244, 207, 161);
-	--blue-color: rgb(88, 109, 127);
+	--blue-color: #7A8EA0;
 }
 
 @viewport{
@@ -33,7 +33,7 @@ html {
 
 body {
 	margin: 0 0 0 0;
-	background-color: var(--pampas-color);
+	background-color: var(--chalk-color);
 	overflow-x: hidden;
 	height: auto;
 	width: auto;
@@ -172,7 +172,7 @@ ul.slides input {
 	width: 10px;
 	height: 10px;
 	border-radius: 50%;
-	background-color: #fff;
+	background-color: var(--chalk-color);
 	opacity: 0.5;
 	margin: 10px;
 }
@@ -240,10 +240,8 @@ ul.menu-burger__item-list {
 	font-family: Gloock, serif;
 	font-weight: 400;
 	font-size: 2em;
-	color: var(--main-text-color);
-	background-color: var(--gold-color);
+	background-color: var(--blue-color);
 	bottom: 0;
-	color: var(--main-text-color);
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -257,7 +255,6 @@ ul.menu-burger__item-list {
 	flex-direction: column; /* Stack items vertically */
 	align-items: center;
 	justify-content: center;
-
 }
 
 .list-container {
@@ -271,6 +268,7 @@ ul.menu-burger__item-list {
 ul.menu-burger__item-list li {
 	vertical-align: middle;
 	margin: 2%;
+	color: var(--chalk-color);
 }
 
 /* Menu fold-out */
@@ -348,7 +346,7 @@ input:checked ~ .menu-burger__item-list {
 }
 
 .fleuron img {
-	height: 40px;
+	height: 30px;
 	width: auto;
 }
 
@@ -436,7 +434,7 @@ a.hyperlink:hover, a.external:hover {
 	width: 50vw;
 	height: 100vh;
 	margin-left: auto;
-	background-image: url('assets/oscar-helgstrand-warm.jpg');
+	background-image: url('assets/sandra-seitamaa-ew-k5JTl1xw-unsplash.jpg');
 	background-size: cover; /* Cover the entire container */
 	background-position: center;
 	position: relative;
@@ -451,15 +449,15 @@ a.hyperlink:hover, a.external:hover {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(234, 235, 237, 0.6); /* Adjust the last value (0.5) to set the transparency */
+	background-color: rgba(234, 235, 237, 0.2); /* Adjust the last value (0.5) to set the transparency */
 	z-index: 0; /* Make sure the pseudo-element is above the background image */
 }
 
 #splash-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center horizontally */
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
 	background-color: transparent;
 	width: 300px;
 	height: 300px;
@@ -471,11 +469,12 @@ a.hyperlink:hover, a.external:hover {
 .splash-text {
 	display: block;
 	font-family: 'La Belle Aurore', cursive;
+	color: var(--chalk-color);
 	font-size: 5em;
 	font-variant: normal;
 	font-weight: 400;
 	text-align: center;
-	line-height: 0.6em;
+	line-height: 0.8em;
 	text-decoration: none;
 	margin: 10px 0;
 	opacity: 0; /* Start with 0 opacity */
@@ -496,6 +495,7 @@ a.hyperlink:hover, a.external:hover {
 }
 
 #splash-date {
+	color: var(--chalk-color);
 	text-align: center;
 	font-size: 1.5em;
 	line-height: 1em;
