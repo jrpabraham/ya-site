@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP - Yenia & Anthony's Wedding</title>
+    <link rel="stylesheet" type="text/css" href="main.css"> <style>
+        body {
+            background-color: var(--chalk-color); 
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px; 
+            box-sizing: border-box; 
+        }
+        
+        #rsvp-section-container {
+            max-width: 600px;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 100%;
+        }
+
+        #rsvp-section-container h2, #rsvp-section-container h3 {
+            color: var(--main-text-color);
+        }
+
+        #rsvp-section-container p {
+            text-align: center;
+        }
+
+        .rsvp-sub-section {
+            margin-bottom: 25px;
+        }
+
+        #rsvp-section-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+            text-align: left;
+        }
+
+        #rsvp-section-container input[type="text"],
+        #rsvp-section-container select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        #rsvp-section-container button {
+            background-color: var(--main-text-color);
+            color: var(--pampas-color);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        #rsvp-section-container button:hover {
+            background-color: var(--highlight-color);
+        }
+
+        .guest-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .guest-line .guest-name {
+            font-weight: bold;
+            /* min-width: 120px; */
+            text-align: right;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .guest-line label {
+            display: inline;
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+
+        #rsvp-confirmation-message,
+        #no-guest-data-message {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        #rsvp-confirmation-message {
+            background-color: #e6ffe6;
+            color: #336633;
+            border: 1px solid #99cc99;
+        }
+
+        #no-guest-data-message {
+            background-color: #ffe6e6;
+            color: #cc3333;
+            border: 1px solid #ff9999;
+        }
+    </style>
+</head>
+<body>
+    <div id="rsvp-section-container">
+        <h2>Confirm Your Attendance</h2>
+        <p>Please confirm your attendance for each person listed below.</p>
+
+        <form id="rsvp-form-section" class="rsvp-sub-section" style="display: none; margin-top: 30px;">
+            <div id="guest-attendance-fields">
+                </div>
+
+            <input type="hidden" id="form-invitee-main-name" name="Main Invitee Name" value="">
+            <input type="hidden" id="form-all-event-codes" name="Invited Event Codes" value="">
+            
+            <button type="submit">Submit RSVP</button>
+        </form>
+
+        <div id="rsvp-confirmation-message" class="rsvp-sub-section" style="display: none; margin-top: 30px;">
+            <h3>Thank You for Your RSVP!</h3>
+            <p>We've received your response and can't wait to celebrate with you.</p>
+            <p>If anything changes, please contact us directly.</p>
+            <button onclick="window.location.href='main.html'">Back to Wedding Details</button>
+        </div>
+
+        <div id="no-guest-data-message" class="rsvp-sub-section" style="display: none;">
+            <h3>Oops! We couldn't find your invitation details.</h3>
+            <p>Please return to the <a href="main.html">main wedding website</a> and enter your name to proceed to the RSVP form.</p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const rsvpFormSection = document.getElementById('rsvp-form-section');
+            const guestAttendanceFieldsDiv = document.getElementById('guest-attendance-fields');
+            const noGuestDataMessage = document.getElementById('no-guest-data-message');
+            const submitButton = rsvpFormSection.querySelector('button[type="submit"]');
+
+            const identifiedGuestJSON = sessionStorage.getItem('currentIdentifiedGuest');
+            let currentGuestData = null;
+
+            if (identifiedGuestJSON) {
+                currentGuestData = JSON.parse(identifiedGuestJSON);
+
+                document.getElementById('form-invitee-main-name').value = currentGuestData.invitee;
+                document.getElementById('form-all-event-codes').value = currentGuestData.eventCodes.join(', ');
+
+                let allInvitedPeople = [currentGuestData.invitee];
+                if (Array.isArray(currentGuestData.guests)) {
+                    allInvitedPeople = allInvitedPeople.concat(currentGuestData.guests.filter(g => g && g.trim() !== ''));
+                }
+
+                function createAttendanceQuestion(person, eventLabel, eventCode) {
+                    if (!currentGuestData.eventCodes.includes(eventCode)) {
+                        return null;
+                    }
+
+                    const div = document.createElement('div');
+                    div.className = 'guest-line';
+                    div.setAttribute('data-event', eventCode);
+
+                    const prelabel = document.createElement('label');
+                    prelabel.textContent = 'Will';
+                    div.appendChild(prelabel);
+
+                    const nameSpan = document.createElement('label');
+                    // nameSpan.className = 'guest-name';
+                    nameSpan.textContent = person;
+                    div.appendChild(nameSpan);
+
+                    const label = document.createElement('label');
+                    label.textContent = `attend the ${eventLabel}?`;
+                    div.appendChild(label);
+
+                    const select = document.createElement('select');
+
+                    const selectId = `attendance-${normalizeName(person).replace(/[^a-z0-9]/g, '')}-${eventCode}`;
+
+                    select.id = selectId;
+                    select.name = `${person} Attendance (${eventLabel})`;
+                    
+                    select.required = true;
+
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = '';
+                    defaultOption.textContent = '-- Select --';
+                    select.appendChild(defaultOption);
+
+                    const attendOption = document.createElement('option');
+                    attendOption.value = 'Attending';
+                    attendOption.textContent = 'Attend';
+                    select.appendChild(attendOption);
+
+                    const notAttendOption = document.createElement('option');
+                    notAttendOption.value = 'Not Attending';
+                    notAttendOption.textContent = 'Not Attend';
+                    select.appendChild(notAttendOption);
+
+                    div.appendChild(select);
+                    return div;
+                }
+
+                allInvitedPeople.forEach(personName => {
+                    const teaCeremonyDiv = createAttendanceQuestion(personName, 'Tea Ceremony', 'Tea');
+                    if (teaCeremonyDiv) {
+                        guestAttendanceFieldsDiv.appendChild(teaCeremonyDiv);
+                    }
+
+                    const receptionDiv = createAttendanceQuestion(personName, 'Reception at Koi Palace', 'Koi');
+                    if (receptionDiv) {
+                        guestAttendanceFieldsDiv.appendChild(receptionDiv);
+                    }
+
+                    const smallCeremonyDiv = createAttendanceQuestion(personName, 'Wedding in Sparrow Valley', 'Svr');
+                    if (smallCeremonyDiv) {
+                        guestAttendanceFieldsDiv.appendChild(smallCeremonyDiv);
+                    }
+
+                    const normalizedGuestPlaceholder = normalizeName("Guest"); // Standardize "Guest" for comparison
+                    const normalizedPerson = normalizeName(personName);
+
+                    if (normalizedPerson === normalizedGuestPlaceholder || normalizedPerson === normalizeName("Optional Plus One")) {
+                        const guestNameInputDiv = document.createElement('div');
+                        guestNameInputDiv.className = 'guest-name-input-field guest-line'; // Using guest-line for flex styling
+
+                        const label = document.createElement('label');
+                        label.textContent = `Please enter ${personName}'s name:`; // "Please enter Guest's name:"
+                        label.style.fontWeight = 'bold'; // Make label stand out
+                        guestNameInputDiv.appendChild(label);
+
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.placeholder = 'Full Name';
+                        // Unique ID for the input field
+                        input.id = `actual-guest-name-${normalizedPerson.replace(/[^a-z0-9]/g, '')}`;
+                        // Name for Formspree submission
+                        input.name = `${personName}'s Actual Name`;
+                        input.required = true; // Make it required if they need to enter a name
+                        guestNameInputDiv.appendChild(input);
+
+                        guestAttendanceFieldsDiv.appendChild(guestNameInputDiv);
+                    }                
+
+                });
+
+                rsvpFormSection.style.display = 'block';
+
+                submitButton.addEventListener('click', async (event) => {
+                    event.preventDefault();
+
+                    const formOutputData = {};
+                    formOutputData['Main Invitee Name'] = currentGuestData.invitee;
+                    formOutputData['Invited Event Codes'] = currentGuestData.eventCodes.join(', ');
+                    formOutputData['Submission Timestamp'] = new Date().toLocaleString();
+
+                    let allAttendanceValid = true;
+
+                    const teaGuestsAttending = [];
+                    let teaTotal = 0;
+                    const koiGuestsAttending = [];
+                    let koiTotal = 0;
+                    const svrGuestsAttending = [];
+                    let svrTotal = 0;
+
+                   allInvitedPeople.forEach(personName => {
+                        const normalizedPersonName = normalizeName(personName).replace(/[^a-z0-9]/g, '');
+
+                        const eventMap = {
+                            'Tea': { label: 'Tea Ceremony', guestList: teaGuestsAttending, totalCounter: 'teaTotal' },
+                            'Koi': { label: 'Reception at Koi Palace', guestList: koiGuestsAttending, totalCounter: 'koiTotal' },
+                            'Svr': { label: 'Wedding in Sparrow Valley', guestList: svrGuestsAttending, totalCounter: 'svrTotal' },
+                        };
+
+                        for (const eventCode in eventMap) {
+                            if (currentGuestData.eventCodes.includes(eventCode)) {
+                                const selectId = `attendance-${normalizeName(personName).replace(/[^a-z0-9]/g, '')}-${eventCode}`;
+
+                                const selectElement = document.getElementById(selectId);
+
+                                if (selectElement) {
+                                    const attendanceStatus = selectElement.value;
+
+                                    if (attendanceStatus === '') {
+                                        allAttendanceValid = false;
+                                    }
+
+                                    if (attendanceStatus === 'Attending') {
+                                        eventMap[eventCode].guestList.push(personName);
+                                        if (eventCode === 'Tea') teaTotal++;
+                                        else if (eventCode === 'Koi') koiTotal++;
+                                        else if (eventCode === 'Svr') svrTotal++;
+                                    }
+                                } else {
+                                    console.warn(`WARN: Select element with ID "${selectId}" was expected but not found!`);
+                                }
+                            }
+                        const normalizedGuestPlaceholder = normalizeName("Guest");
+                        const normalizedOptionalPlusOne = normalizeName("Optional Plus One"); // If you use this too
+
+                        if (normalizedPersonName === normalizedGuestPlaceholder || normalizedPersonName === normalizedOptionalPlusOne) {
+                            const guestNameInputId = `actual-guest-name-${normalizedPersonName.replace(/[^a-z0-9]/g, '')}`;
+                            const guestNameInput = document.getElementById(guestNameInputId);
+
+                            if (guestNameInput) {
+                                const actualGuestName = guestNameInput.value.trim();
+                                if (actualGuestName === '' && guestNameInput.required) {
+                                    allAttendanceValid = false; // Mark invalid if required name is empty
+                                    alert(`Please enter the name for ${personName}.`); // Prompt for specific field
+                                }
+                                formOutputData[`Guest's Name`] = actualGuestName;
+                            }
+                        }                        
+
+                        }
+                    });
+
+                    if (!allAttendanceValid) {
+                        alert("Please select an attendance option for everyone listed for all events you are invited to.");
+                        return;
+                    }
+
+                    formOutputData['Svr guests'] = svrGuestsAttending.join(', ');
+                    formOutputData['Svr total'] = svrTotal;
+                    formOutputData['Tea guests'] = teaGuestsAttending.join(', ');
+                    formOutputData['Tea total'] = teaTotal;
+                    formOutputData['Koi guests'] = koiGuestsAttending.join(', ');
+                    formOutputData['Koi total'] = koiTotal;
+
+                    // console.log("Form data being sent:", formOutputData); 
+
+                    await submitRsvp(formOutputData);
+
+                    sessionStorage.removeItem('currentIdentifiedGuest');
+                });
+
+            } else {
+                noGuestDataMessage.style.display = 'block';
+            }
+        }); 
+    </script>
+</body>
+</html>

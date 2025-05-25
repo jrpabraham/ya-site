@@ -1,341 +1,176 @@
 <!DOCTYPE html>
-	
-	<html lang="en">
+<html lang="en">
 
-		<head>
+<!-- 
+DONE: 
+- DONE - Remove Our Story Section?
+- DONE - Remove Text on details for the entourage, just name is good.
+- DONE Figure out RSVP section and library 
+- DONE - Update side menu to remove and order our story, etc 
+- DONE - Update RSVP to add the + guests in text 
+- DONE - Format Entourage section
+- DONE - Place to stay section, different based on event code, make sure to add the SVR wedding block
+- DONE - Fix spacing in RSVP section
+- DONE - Add guest name option
 
-			<title>Yenia and Anthony's Wedding</title>
+TODO:
+- Kirstens picture
+- Parent pictures
+- Finalize schedule
+- Add all of the guests 
+- Test Guests without names in RSVP 
+- Finalize Photo selection
+- Add Milpitas hotels
+- Gallery Page? 
 
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<meta property="og:image" content="assets/preview.JPEG">
-			<meta property="og:image:width" content="1200">
-			<meta property="og:image:height" content="1200">
+Extra:
+- Things to do secion 
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yenia & Anthony's Wedding</title>
+    <link rel="stylesheet" type="text/css" href="main.css"> <style>
+        body {
+            background-image: url('assets/sandra-seitamaa-ew-k5JTl1xw-unsplash.jpg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0; 
+            flex-direction: column;
+            position: relative; 
+            overflow: hidden;
+        }
 
-			<link rel="stylesheet" type="text/css" href="main.css">
+        body::before {  
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(234, 235, 237, 0.4);
+            z-index: 0;
+        }
 
-			<script>
-			    function checkPassword() {
-			      const correctHash = "5e7589f874372fa7bbaea0353992fc27"; // md5('password')
-			      const userInput = prompt("Please enter the password on your invitation:");
-			      const userHash = md5(userInput);
+        .password-container {
+            background-color: rgba(255, 255, 255, 0.85); 
+            padding: 40px 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 1; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-			      if (userHash === correctHash) {
-			        document.getElementById("protected-content").style.display = "block";
-			      } else {
-			        alert("Incorrect password. Please try again.");
-			      }
-			    }
+        .password-container h1 {
+            font-family: 'La Belle Aurore', cursive;
+            font-size: 4em;
+            color: var(--main-text-color);
+            line-height: 0.8em;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
 
-			    // Load the MD5 script
-			    window.onload = function () {
-			      checkPassword();
-			    };
-			</script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+        .password-container p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #555;
+        }
 
-		</head>
+        .password-container input[type="password"] {
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 250px; 
+            max-width: 80%; 
+            margin-bottom: 20px;
+            box-sizing: border-box; 
+            text-align: center;
+        }
 
-		<body id="protected-content" style="display:none;">
+        .password-container button {
+            background-color: var(--main-text-color); 
+            color: var(--pampas-color); 
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-			<div class="carousel">
-			<ul class="slides">
-			  <input type="radio" name="radio-buttons" id="img-1" checked />
-			  <li class="slide-container">
-				<div class="slide-image">
-				  <img alt="shoot1" src="assets/shoot/DSC07887-small.JPEG">
-				</div>
-				<!-- <div class="carousel-controls">
-				  <label for="img-3" class="prev-slide">
-					<span>&lsaquo;</span>
-				  </label>
-				  <label for="img-2" class="next-slide">
-					<span>&rsaquo;</span>
-				  </label>
-				</div> -->
-			  </li>
-			  <input type="radio" name="radio-buttons" id="img-2" />
-			  <li class="slide-container">
-				<div class="slide-image">
-				  <img alt="shoot2" src="assets/shoot/DSC07908-small.JPEG">
-				</div>
-				<!-- <div class="carousel-controls">
-				  <label for="img-1" class="prev-slide">
-					<span>&lsaquo;</span>
-				  </label>
-				  <label for="img-3" class="next-slide">
-					<span>&rsaquo;</span>
-				  </label>
-				</div> -->
-			  </li>
-			  <input type="radio" name="radio-buttons" id="img-3" />
-			  <li class="slide-container">
-				<div class="slide-image">
-				  <img alt="shoot3" src="assets/shoot/DSC07829-small.JPEG">
-				</div>
-				<!-- <div class="carousel-controls">
-				  <label for="img-2" class="prev-slide">
-					<span>&lsaquo;</span>
-				  </label>
-				  <label for="img-1" class="next-slide">
-					<span>&rsaquo;</span>
-				  </label>
-				</div> -->
-			  </li>
-			  <div class="carousel-dots">
-				<label for="img-1" class="carousel-dot" id="img-dot-1"></label>
-				<label for="img-2" class="carousel-dot" id="img-dot-2"></label>
-				<label for="img-3" class="carousel-dot" id="img-dot-3"></label>
-			  </div>
-			</ul>
-			</div>
+        .password-container button:hover {
+            background-color: var(--highlight-color); 
+        }
 
-			<div class="menu-burger">
-			<input type="checkbox" id="animationToggle" />
-			<!-- `menu-2` icon of Tabler Icon Suite (https://tablericons.com/) licensed under MIT -->
-			<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-			  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-			  <line x1="4" y1="6" x2="20" y2="6" />
-			  <line x1="4" y1="12" x2="20" y2="12" />
-			  <line x1="4" y1="18" x2="20" y2="18" />
-			</svg>
-			<ul class="menu-burger__item-list">
-			  <li><a class="hyperlink" onclick="closeMenu()" href="#story">Our Story</a></li>
-			  <li><a class="hyperlink" onclick="closeMenu()" href="#entourage">Entourage</a></li>
-			  <li><a class="hyperlink" onclick="closeMenu()" href="#schedule">Schedule</a></li>
-			  <li><a class="hyperlink" onclick="closeMenu()" href="#rsvp">RSVP</a></li>
-			  <li><a class="hyperlink" onclick="closeMenu()" href="#registry">Registry</a></li>
-			  <li><a class="hyperlink" onclick="closeMenu()" href="#faq">FAQ</a></li>
-			</ul>
-			</div>
+        #password-error-message {
+            color: red;
+            margin-top: 15px;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+</head>
+<body>
+    <div class="password-container">
+        <h1>Yenia & Anthony</h1>
+        <p>Please enter the password from your invitation to enter the website.</p>
+        <input type="password" id="site-password-input" placeholder="Enter password">
+        <button onclick="checkSitePassword()">Enter</button>
+        <p id="password-error-message">Incorrect password. Please try again.</p>
+    </div>
 
-			<div id="splash">
+    <script>
+        const SITE_PASSWORDS = [
+            { passwordHash: "ShyFatFrog", allowedEvents: ["Svr", "Tea", "Koi"] },
+            { passwordHash: "shyfatfrog", allowedEvents: ["Svr", "Tea", "Koi"] },
+            { passwordHash: "SHYFATFROG", allowedEvents: ["Svr", "Tea", "Koi"] },
+            { passwordHash: "Shyfatfrog", allowedEvents: ["Svr", "Tea", "Koi"] },
+            { passwordHash: "CuteFatFrog", allowedEvents: ["Tea","Koi"] },
+            { passwordHash: "cutefatfrog", allowedEvents: ["Tea","Koi"] },
+            { passwordHash: "CUTEFATFROG", allowedEvents: ["Tea","Koi"] },
+            { passwordHash: "Cutefatfrog", allowedEvents: ["Tea","Koi"] },
+            { passwordHash: "FatFrog2025", allowedEvents: ["Koi"] },
+            { passwordHash: "fatfrog2025", allowedEvents: ["Koi"] },
+            { passwordHash: "FATFROG2025", allowedEvents: ["Koi"] },
+            { passwordHash: "Fatfrog2025", allowedEvents: ["Koi"] }
+        ];
 
-				<div id="splash-container">
+        function checkSitePassword() {
+            const userInput = document.getElementById('site-password-input').value;
+            const userHash = userInput;
 
-					<a class="hyperlink" href="#top">
-						<span class="splash-text">Yenia</span>
-						<span class="splash-text">&</span>
-						<span class="splash-text">Anthony</span>
-					</a>
+            // const userHash = md5(userInput); // Uses the md5.min.js library
+            const errorMessage = document.getElementById('password-error-message');
 
-				</div>
+            errorMessage.style.display = 'none'; 
 
-				<h2 id="splash-date">16 August 2025</h2>
+            const matchedPasswordEntry = SITE_PASSWORDS.find(entry => entry.passwordHash === userHash);
 
-			</div>
+            if (matchedPasswordEntry) {
+                sessionStorage.setItem('allowedEventCodes', JSON.stringify(matchedPasswordEntry.allowedEvents));
+                
+                window.location.href = 'main.html';
+            } else {
+                errorMessage.style.display = 'block';
+                document.getElementById('site-password-input').value = ''; 
+            }
+        }
 
-			<div class="page">
-
-				<a id="top"></a> 
-
-				<a id="story"></a> <div class="line-box"><hr class="left"><h2>Our Story</h2></div>
-
-					<p>David and Leyanne first crossed paths in April 2017. David had a crush on Leyanne but it wasn't until January 2019 that the spark between them ignited into a flame of romance.</p>
-
-					<div class="fleuron"><img alt = "fleuron" src="assets/fernicon.png"></div>
-
-					<p>David and Leyanne have since shared countless moments of joy, laughter, and adventure. From exploring new destinations to trying different foods at new restaurants, each experience added to their love story. Through the ups and downs, navigating the challenges of a global pandemic and conquering the trials of a long-distance relationship while David pursued a master's degree in Florida, their love only grew stronger.</p>
-
-					<div class="fleuron"><img alt = "fleuron" src="assets/fernicon.png"></div>
-
-					<p>In November 2023, David asked Leyanne to be his forever and, with tears of joy and hearts full of love, they embraced the next chapter of their story&mdash;an engagement that marked the beginning of a lifetime together. David and Leyanne will continue to grow in love as they aspire to travel the world, experience new adventures, and chase their dreams together.</p>
-
-				<a id="entourage"></a> <div class="line-box"><h2>Entourage</h2><hr class="right"></div>
-
-					<table class="entourage">
-						<tr>
-							<td class="profile"><div class="profile"><img alt="brittany" src="assets/profiles/brittany.jpg"></div></td>
-							<td class="bio-right"><p><span class="profile-name">Brittany Pangaliman</span><br>Brittany is Leyanne's younger sibling and the social butterfly of the family. Britt's energetic spirit lights up every room she enters and her relentless pursuit of knowledge inspires everyone around her. Leyanne is filled with gratitude to have Britt by her side as her amazing sister, forever friend, and maid of honor.</p></td>
-						</tr>
-					</table>
-					<table class="entourage">
-						<tr>
-							<td class="bio-left"><p><span class="profile-name">Jacob Nickless</span><br>Jake met David in his MFA program where they became close friends and business partners. Jake has an amazing sense of humor and likes to play music. He is also extremely passionate about any project or endeavor the two of them face together, whether it's working on a film or being David's best man.</p></td>
-							<td class="profile"><div class="profile"><img alt="jacob" src="assets/profiles/jacob.jpg"></div></td>
-						</tr>
-					</table>
-					<table class="entourage">
-						<tr>
-							<td class="profile"><div class="profile"><img alt="whelloby" src="assets/profiles/whelloby.jpg"></div></td>
-							<td class="bio-right"><p><span class="profile-name">Whelloby Pangaliman</span><br>Whelloby is Leyanne's cherished cousin-turned-bridesmaid. They grew up very closely and have been by each other's sides throughout many milestones. At family parties, they get a little competitive and play card games like pusoy dos with their other cousins. Leyanne admires Whelloby's unwavering positivity and her ability to make anyone laugh with her cute sense of humor.</p></td>
-						</tr>
-					</table>
-					<table class="entourage">
-						<tr>
-							<td class="bio-left"><p><span class="profile-name">Michael Papa</span><br> As his little brother, Michael has known David his entire life. Growing up, they bonded over movies, anime, and video games. Some things never change, except they both agree that Michael is now the best gamer in the family.</p></td>
-							<td class="profile"><div class="profile"><img alt="michael" src="assets/profiles/michael.jpg"></div></td>
-						</tr>
-					</table>                    
-					<table class="entourage">
-						<tr>
-							<td class="profile"><div class="profile"><img alt="jocelyn" src="assets/profiles/jocelyn.jpg"></div></td>
-							<td class="bio-right"><p><span class="profile-name">Jocelyn Solorio</span><br>Jocelyn and Leyanne met and bonded over their shared love of clothes and shopping while working at American Eagle almost 10 years ago. Since then, Leyanne has gotten closer to Jocelyn's family, who she considers as an extension of her own. What started as a playful joke about Jocelyn being a Leyanne's bridesmaid has now become a beautiful reality.</p></td>
-						</tr>
-					</table>
-					<table class="entourage">
-						<tr>
-							<td class="bio-left"><p><span class="profile-name">Adam Wells</span><br>Adam is one of the first friends that David made while working on his MFA in Florida. They have both worked on each other's film sets and like to grab food together. He is an encyclopedia of movies and is (modestly) really athletic.</p></td>
-							<td class="profile"><div class="profile"><img alt="adam" src="assets/profiles/adam.jpg"></div></td>
-						</tr>
-					</table>
-					<table class="entourage">
-						<tr>
-							<td class="profile"><div class="profile"><img alt="kathleen" src="assets/profiles/kathleen.jpg"></div></td>
-							<td class="bio-right"><p><span class="profile-name">Kathleen Wong</span><br>Introduced to Leyanne by her beloved fianc&eacute;, David, Kathleen quickly became a big part of Leyanne's life. Kathleen has a warm personality with many hobbies and passions. From capturing beautiful moments behind the lens to crocheting cute masterpieces, Kathleen's creativity is what Leyanne loves so much about her.</p></td>
-						</tr>
-					</table>
-					<table class="entourage">
-						<tr>
-							<td class="bio-left"><p><span class="profile-name">Joshua Abraham</span><br>Although they are cousins, David and Josh grew up like twins, having been born close together. In the past, they would build train sets and play video games. David and Josh now live on opposite sides of the country but it doesn't stop them from bonding over board games and party games during holidays. He is exceptionally smart and can get along with anyone.</p></td>
-							<td class="profile"><div class="profile"><img alt="joshua" src="assets/profiles/joshua.jpg"></div></td>
-						</tr>
-					</table>
-					<table class="entourage">
-						<tr>
-							<td class="profile"><div class="profile"><img alt="taha" src="assets/profiles/taha.jpg"></div></td>
-							<td class="bio-right"><p><span class="profile-name">Taha Ahmed</span><br>Taha and Leyane first met in their math class during sophomore year in high school. They have since become inseperable, sharing so much laughter and countless unforgettable moments. Taha is always on the lookout for her next adventure. Leyane cherishes their long friendship and is grateful for the joy and spontaneity Taha brings to her life.</p></td>
-						</tr>
-					</table>
-					<table class="entourage">
-						<tr>
-							<td class="bio-left"><p><span class="profile-name">Jordan Kost</span><br>Jordan has known David since grade school and throughout high school they nurtured their passion in filmmaking. Jordan is a technology guru and can fix any computer problem. Like their friendship, Jordan and David's passion for film persists in their continued collaboration. </p></td>
-							<td class="profile"><div class="profile"><img alt="jordan" src="assets/profiles/jordan.jpg"></div></td>
-						</tr>
-					</table>
-					<table class="entourage">
-						<tr>
-							<td class="profile"><div class="profile"><img alt="lea" src="assets/profiles/lea.jpg"></div></td>
-							<td class="bio-right"><p><span class="profile-name">Lea Alcantara</span><br>Lea is Leyanne's future sister-in-law. She is known for her meticulous organization skills and is an amazing dancer. Leyanne adores Lea's passion for anything Disney, knowing that together they will be sharing many magical moments as they begin a new chapter of sisterhood. With Lea by her side, Leyanne is gaining a bridesmaid and a guiding light in a lovely older sister.</p></td>
-						</tr>
-					</table>
-					<table class="entourage">
-						<tr>
-							<td class="bio-left"><p><span class="profile-name">Mark Alcantara</span><br>Mark is David's brother-in-law but even before marrying David's sister Lea, Mark has been very close to the family. Mark is a man of many talents: he is a skilled wrestler and fisher. You can find Mark by his contagious laughter.</p></td>
-							<td class="profile"><div class="profile"><img alt="mark" src="assets/profiles/mark.jpg"></div></td>
-						</tr>
-					</table>
-
-				<a id="schedule"></a> <div class="line-box"><hr class="left"><h2>Schedule</h2></div>
-
-					<table class="schedule">
-						<tr>
-							<td><span class="schedule-time">2:00<span class="superscript">pm</span></span></td>
-							<td><h3>Ceremony</h3><a class="hyperlink" target="_blank" href="https://maps.app.goo.gl/z2rjavR3DwiL9t2C7">All Saints Catholic Church<br>22824 2nd St<br>Hayward, CA 94541</a></td>
-						</tr>
-						<tr>
-							<td><span class="schedule-time">5:00<span class="superscript">pm</span></span></td>
-							<td><h3>Reception</h3><a class="hyperlink" target="_blank" href="https://maps.app.goo.gl/1eDNKBpugKXJdeDV7">Redwood Canyon<br>17007 Redwood Rd<br>Castro Valley, CA 94546</a></td>
-						</tr>
-						<tr>
-							<td><span class="schedule-time">6:00<span class="superscript">pm</span></span></td>
-							<td><h3>Couple's Entrance</h3>Please welcome the newly wedded couple and their bridal party! Dinner to follow.</td>
-						</tr>
-						<tr>
-							<td><span class="schedule-time">10:00<span class="superscript">pm</span></span></td>
-							<td><h3>Last Song</h3>Steal one last dance before the end of the night. The party continues elsewhere!</td>
-						</tr>  
-					</table>
-
-				<a id="rsvp"></a> <div class="line-box"><h2>RSVP</h2><hr class="right"></div>
-
-					<p>Please respond by 1 July 2024 using the form below and direct any inquiries to <a class="hyperlink" target="_blank" href="mailto:annedavidpapa@gmail.com">annedavidpapa<span class="digit">@</span>gmail.com</a></p>
-
-					<div class="button-container">
-						<form target="_blank">
-							<button class="fill" type="submit" formaction="https://forms.gle/NyZVJV4daNs3L3cp7">Submit Your RSVP</button>
-						</form>
-					</div>
-
-				<a id="registry"></a> <div class="line-box"><hr class="left"><h2>Registry</h2></div>
-
-					<p>Dear family and friends,</p>
-
-					<p>As we prepare to begin our new life together, we are filled with gratitude for your love and support. If you wish to honor us with a gift, we kindly ask for a contribution towards our future. Cash gifts will help us start this new chapter, allowing us to create a home and make lasting memories. For those who prefer to give a physical gift, we have also created a registry which can be found below.</p>
-
-					<div class="button-container">
-						<form target="_blank">
-							<button class="fill" type="submit" formaction="https://www.zola.com/registry/leyanneanddavid">Gift Registry</button>
-						</form>
-					</div>
-					
-					<p>Thank you for your generosity and for being a part of our special day. We can’t wait to celebrate with you!</p>
-
-					<p>With love,</p>
-					<p><span class="profile-name">David & Leyanne</span></p>
-
-				<div class="line-box"><h2>Our Thanks</h2><hr class="right"></div>
-
-					<table class="entourage">
-						<tr>
-							<td class="parents"><div class="profile"><img alt="pang" src="assets/profiles/pang.jpg"></div></td>
-							<td class="parents"><div class="profile"><img alt="papa" src="assets/profiles/papa.jpg"></div></td>
-						</tr>
-					</table>
-
-					<p>To our wonderful parents &mdash;</p>
-
-					<p>Brian & Leilanie Pangaliman and Edmund & Lani Papa,<p>
-
-					<p>We are incredibly grateful for the endless love, support, and encouragement you have given us throughout our journey. Thank you for your unconditional love and for always being there for us. You are our greatest role models and your guidance has shaped us into the people we are today. We are deeply blessed to have you as our parents and to share this wonderful occasion with you. Thank you for everything you have done and continue to do, we love you more than words can express.</p>
-
-					<p>With love,</p>
-					<p><span class="profile-name">David & Leyanne</span></p>
-
-				<a id="faq"></a> <div class="line-box"><hr class="left"><h2>FAQ</h2></div>
-
-					<h3>What is the dress code?</h3>
-
-						<p>The dress code for our event is formal. Ladies should wear a floor-length evening gown or your most dressy cocktail dress. Gentlemen should wear a suit with a tie or bow tie. Please reserve navy blue for our bridal party.</p>
-					
-					<br>
-
-					<h3>Can I bring a plus one?</h3>
-
-						<p>Due to limited space, we can only accommodate those guests formally invited on your wedding invitation. If you received an invitation for a plus one, they would be listed under your name when you RSVP.</p>
-					
-					<br>
-
-					<h3>Can I bring children?</h3>
-
-						<p>We love your little ones but due to our limited space, we respectfully request you only bring children included in the invitation.</p>
-					
-					<br>
-
-					<h3>How long does it take to get from the church to the reception?</h3>
-
-						<p>Driving from the church to the reception venue should take approximately 15 without traffic.</p>
-					
-					<br>
-
-					<h3>Where do you recommend guests stay overnight?</h3>
-
-						<p>For your convenience, a block of rooms have been reserved at the <a class="hyperlink" target="_blank" href="https://maps.app.goo.gl/uTbH8f2YYh3jgig1A">Home2 Suites by Hilton Hayward</a> at a discounted rate. Please book a room in our hotel block using the link in the <a class="hyperlink" href="https://forms.gle/cnEVFfZNy8VvA71r8">RSVP form</a>.</p>
-					
-					<br>
-
-					<h3>I have other questions, how do I contact you?</h3>
-
-						<p>Please send us an e-mail at <a class="hyperlink" target="_blank" href="mailto:annedavidpapa@gmail.com">annedavidpapa@gmail.com</a>. We look forward to having you as part of our special day.</p>
-
-			</div>
-
-	<script>
-		const animationToggle = document.getElementById('animationToggle');
-		const undoLinks = document.querySelectorAll('.hyperlink');
-		const animatedDiv = document.querySelector('.menu-burger__item-list');
-
-		animationToggle.addEventListener('change', () => {
-			animatedDiv.classList.toggle('animate', animationToggle.checked);
-		});
-
-		undoLinks.forEach(link => {
-			link.addEventListener('click', () => {
-				animatedDiv.classList.remove('animate');
-				animationToggle.checked = false;
-			});
-		});
-	</script>
-				
-		</body>
-
-	</html>
+        document.getElementById('site-password-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkSitePassword();
+            }
+        });
+    </script>
+</body>
+</html>
