@@ -499,7 +499,7 @@ function normalizeName(name) {
 
 async function submitRsvp(formData) {
 
-    const formspreeEndpoint = "https://formspree.io/f/movdzedd"; 
+    const formspreeEndpoint = "https://formspree.io/f/xvgajwrp"; 
 
     try {
         const response = await fetch(formspreeEndpoint, {
