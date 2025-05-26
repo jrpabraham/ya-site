@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+	
+	<html lang="en">
+
+		<head>
+
+			<title>Yenia and Anthony's Wedding</title>
+
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta property="og:image" content="assets/preview.JPEG">
+			<meta property="og:image:width" content="1200">
+			<meta property="og:image:height" content="1200">
+
+			<link rel="stylesheet" type="text/css" href="main.css">
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+
+		</head>
+
+		<body id="protected-content" style="display:block">
+
+			<div class="carousel">
+			<ul class="slides">
+			  <input type="radio" name="radio-buttons" id="img-1" checked />
+			  <li class="slide-container">
+				<div class="slide-image">
+				  <img alt="shoot1" src="assets/shoot/AY2025Denver3.jpg">
+				</div>
+				<!-- <div class="carousel-controls">
+				  <label for="img-3" class="prev-slide">
+					<span>&lsaquo;</span>
+				  </label>
+				  <label for="img-2" class="next-slide">
+					<span>&rsaquo;</span>
+				  </label>
+				</div> -->
+			  </li>
+			  <input type="radio" name="radio-buttons" id="img-2" />
+			  <li class="slide-container">
+				<div class="slide-image">
+				  <img alt="shoot2" src="assets/shoot/AY2025Denver2.jpg">
+				</div>
+				<!-- <div class="carousel-controls">
+				  <label for="img-1" class="prev-slide">
+					<span>&lsaquo;</span>
+				  </label>
+				  <label for="img-3" class="next-slide">
+					<span>&rsaquo;</span>
+				  </label>
+				</div> -->
+			  </li>
+			  <input type="radio" name="radio-buttons" id="img-3" />
+			  <li class="slide-container">
+				<div class="slide-image">
+				  <img alt="shoot3" src="assets/shoot/AY2025Denver1.jpg">
+				</div>
+				<!-- <div class="carousel-controls">
+				  <label for="img-2" class="prev-slide">
+					<span>&lsaquo;</span>
+				  </label>
+				  <label for="img-1" class="next-slide">
+					<span>&rsaquo;</span>
+				  </label>
+				</div> -->
+			  </li>
+			  <div class="carousel-dots">
+				<label for="img-1" class="carousel-dot" id="img-dot-1"></label>
+				<label for="img-2" class="carousel-dot" id="img-dot-2"></label>
+				<label for="img-3" class="carousel-dot" id="img-dot-3"></label>
+			  </div>
+			</ul>
+			</div>
+
+			<div class="menu-burger">
+			<input type="checkbox" id="animationToggle" />
+			<!-- `menu-2` icon of Tabler Icon Suite (https://tablericons.com/) licensed under MIT -->
+			<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+			  <line x1="4" y1="6" x2="20" y2="6" />
+			  <line x1="4" y1="12" x2="20" y2="12" />
+			  <line x1="4" y1="18" x2="20" y2="18" />
+			</svg>
+			<ul class="menu-burger__item-list">
+			  <!-- <li><a class="hyperlink" onclick="closeMenu()" href="#story">Our Story</a></li> -->
+			  <li><a class="hyperlink" onclick="closeMenu()" href="#schedule">Schedule</a></li>
+			  <li><a class="hyperlink" onclick="closeMenu()" href="#rsvp">RSVP</a></li>
+			  <li><a class="hyperlink" onclick="closeMenu()" href="#entourage">Entourage</a></li>
+			  <li><a class="hyperlink" onclick="closeMenu()" href="#registry">Registry</a></li>
+			  <li><a class="hyperlink" onclick="closeMenu()" href="#faq">FAQ</a></li>
+			</ul>
+			</div>
+
+			<div id="splash">
+
+				<div id="splash-container">
+
+					<a class="hyperlink" href="#top">
+						<span class="splash-text">Yenia</span>
+						<span class="splash-text">&</span>
+						<span class="splash-text">Anthony</span>
+					</a>
+
+				</div>
+
+				<h2 id="splash-date-svr" data-event-codes="Svr">2 August 2025</h2>
+				<h2 id="splash-date">6 September 2025</h2>
+
+			</div>
+
+			<div class="page">
+
+				<a id="top"></a> 
+
+				<!-- <a id="story"></a> <div class="line-box" data-event-codes="Koi"><hr class="left"><h2>Our Story</h2></div>
+
+					<p>Anthony and Yenia first crossed paths in April 2017. David had a crush on Leyanne but it wasn't until January 2019 that the spark between them ignited into a flame of romance.</p>
+
+					<div class="fleuron"><img alt = "fleuron" src="assets/fernicon.png"></div>
+
+					<p>David and Leyanne have since shared countless moments of joy, laughter, and adventure. From exploring new destinations to trying different foods at new restaurants, each experience added to their love story. Through the ups and downs, navigating the challenges of a global pandemic and conquering the trials of a long-distance relationship while David pursued a master's degree in Florida, their love only grew stronger.</p>
+
+					<div class="fleuron"><img alt = "fleuron" src="assets/fernicon.png"></div>
+
+					<p>In November 2023, David asked Leyanne to be his forever and, with tears of joy and hearts full of love, they embraced the next chapter of their story&mdash;an engagement that marked the beginning of a lifetime together. David and Leyanne will continue to grow in love as they aspire to travel the world, experience new adventures, and chase their dreams together.</p> -->
+
+
+				<a id="schedule"></a> <div class="line-box"><h2>Schedule</h2><hr class="right"></div>
+
+				<div data-event-codes="Svr"><h5>August 2, 2025</h5></div>
+					<table class="schedule">
+						<tr data-event-codes="Svr">
+							<td><span class="schedule-time">3:00<span class="superscript">pm</span></span></td>
+							<td><h3>Shuttle Pick up</h3><a class="hyperlink" target="_blank" href="https://maps.app.goo.gl/j1hodJpHv4NiETzBA">Hotel Paradox<br>611 Ocean St.<br>Santa Cruz, CA 95060</a></td>
+						</tr>
+						<tr data-event-codes="Svr">
+							<td><span class="schedule-time">4:00<span class="superscript">pm</span></span></td>
+							<td><h3>Ceremony</h3><a class="hyperlink" target="_blank" href="https://maps.app.goo.gl/vjFQpQUnTB1zu6i67">Sparrow Valley Retreat<br>2715 Sparrow Valley Rd.<br>Aptos, CA 95003</a></td>
+						</tr>
+						<tr data-event-codes="Svr">
+							<td><span class="schedule-time">5:00<span class="superscript">pm</span></span></td>
+							<td><h3>Cocktail Hour</h3></td>
+						</tr>
+						<tr data-event-codes="Svr">
+							<td><span class="schedule-time">6:00<span class="superscript">pm</span></span></td>
+							<td><h3>Dinner Time</h3></td>
+						</tr> 
+						<tr data-event-codes="Svr">
+							<td><span class="schedule-time">9:59<span class="superscript">pm</span></span></td>
+							<td><h3>Last Song</h3></td>
+						</tr>  
+						<tr data-event-codes="Svr">
+							<td><span class="schedule-time">10:30<span class="superscript">pm</span></span></td>
+							<td><h3>After Party</h3></td>
+						</tr>  
+
+					</table>
+				<div data-event-codes="Koi"><h5>September 6, 2025</h5></div>
+
+					<table class="schedule">
+						<tr data-event-codes="Tea">
+							<td><span class="schedule-time">9:30<span class="superscript">am</span></span></td>
+							<td><h3>Tea Ceremony</h3><a class="hyperlink" target="_blank" href="https://maps.app.goo.gl/j1hodJpHv4NiETzBA">Groom's House<br>2443 Edsel Dr.<br>Milpitas, CA 95035</a></td>
+						</tr>
+						<tr data-event-codes="Koi">
+							<td><span class="schedule-time">5:00<span class="superscript">pm</span></span></td>
+							<td><h3>Reception</h3><a class="hyperlink" target="_blank" href="https://maps.app.goo.gl/vjFQpQUnTB1zu6i67">Koi Palace<br>768 Barber Ln.<br>Milpitas, CA 95035</a></td>
+						</tr>
+						<tr data-event-codes="Koi">
+							<td><span class="schedule-time">6:00<span class="superscript">pm</span></span></td>
+							<td><h3>Couple's Entrance</h3>Please welcome the newly wedded couple and their bridal party! Dinner to follow.</td>
+						</tr>
+						<tr data-event-codes="Koi">
+							<td><span class="schedule-time">10:59<span class="superscript">pm</span></span></td>
+							<td><h3>Last Song</h3>Steal one last dance before the end of the night. The party continues elsewhere!</td>
+						</tr>  
+					</table>
+
+					<br><br>
+
+				<a id="rsvp"></a> <div class="line-box" ><hr class="left"><h2>RSVP</h2></div>
+					<section id="rsvp-main-page-section" class="section-padding">
+						<p>Please enter your full name as it appears on your invitation to proceed to the RSVP form.</p>
+
+						<div id="name-check-section">
+							<label for="guest-name-input">Your Full Name:</label>
+							<input type="text" id="guest-name-input" placeholder="">
+							<button type="button" onclick="findGuestAndProceed()">Find My Invitation</button>
+							<p id="no-match-message" style="color: red; display: none; margin-top: 10px;">
+								Name not found. Please check your invitation and try again, or contact us directly.
+							</p>
+						</div>
+
+						<div id="proceed-to-rsvp-div" style="display: none; margin-top: 20px;">
+							<!-- <p>Welcome, <span id="identified-guest-name-display" style="font-weight: bold;"></span> + ! Click below to confirm your attendance.</p> -->
+							<p>Welcome, <span id="identified-guest-name-display" style="font-weight: bold;"></span><span id="guest-count-display"></span>! Click below to confirm your attendance.</p>
+
+							<button class="fill" type="button" onclick="goToRsvpPage()">Go to RSVP Form</button>
+						</div>
+					</section>
+
+			
+					<div class="entourage-section">
+					<!-- <h2>Entourage</h2> -->
+					<hr>
+				<a id="entourage"></a> <div class="line-box"><h2>Entourage</h2><hr class="right"></div>
+					<div class="entourage-list">
+						<div class="entourage-item">
+						<img src="assets/profiles/londra.png" alt="Alondra Page" class="avatar">
+						<span class="name">Alondra Page</span>
+						</div>
+
+						<div class="entourage-item">
+						<span class="name">Annie Dao</span>
+						<img src="assets/profiles/annie.png" alt="Annie Dao" class="avatar">
+						</div>
+
+						<div class="entourage-item">
+						<img src="assets/profiles/jessica.png" alt="Jessica Hsieh" class="avatar">
+						<span class="name">Jessica Hsieh</span>
+						</div>
+
+						<div class="entourage-item">
+						<span class="name">Karina Angulo</span>
+						<img src="assets/profiles/karina.png" alt="Karina Angulo" class="avatar">
+						</div>
+						
+						<div class="entourage-item">
+						<img src="assets/profiles/brittany.jpg" alt="Kirsten Yale" class="avatar">
+						<span class="name">Kirsten Yale</span>
+						</div>
+
+						<div class="entourage-item">
+						<span class="name">Nuna Cruz</span>
+						<img src="assets/profiles/nuna.png" alt="Nuna Cruz" class="avatar">
+						</div>
+
+						<div class="entourage-item">
+						<img src="assets/profiles/justin.png" alt="Justin Tran" class="avatar">
+						<span class="name">Justin Tran</span>
+						</div>
+
+						<div class="entourage-item">
+						<span class="name">Kathy Lam</span>
+						<img src="assets/profiles/kathy.png" alt="Kathy Lam" class="avatar">
+						</div>
+
+						<div class="entourage-item">
+						<img src="assets/profiles/kenneth.png" alt="Kenneth Trieu" class="avatar">
+						<span class="name">Kenneth Trieu</span>
+						</div>
+
+						<div class="entourage-item">
+						<span class="name">Thomas Nguyen</span>
+						<img src="assets/profiles/thomas.png" alt="Thomas Nguyen" class="avatar">
+						</div>
+
+						<div class="entourage-item">
+						<img src="assets/profiles/tim.png" alt="Timothy Nguyen" class="avatar">
+						<span class="name">Timothy Nguyen</span>
+						</div>
+
+						<div class="entourage-item">
+						<span class="name">Ricky Lam</span>
+						<img src="assets/profiles/ricky.png" alt="Ricky Lam" class="avatar">
+						</div>
+
+						<div class="entourage-item">
+						<img src="assets/profiles/victory1.png" alt="Victory Le" class="avatar">
+						<span class="name">Victory Le</span>
+						</div>
+						</div>
+					</div>
+		
+
+				<a id="registry"></a> <div class="line-box"><hr class="left"><h2>Registry</h2></div>
+
+					<p>Dear family and friends,</p>
+
+					<p>As we prepare to begin our new life together, we are filled with gratitude for your love and support. If you wish to honor us with a gift, we kindly ask for a contribution towards our future. Cash gifts will help us start this new chapter, allowing us to create a home and make lasting memories.</p>
+					
+					<p>Thank you for your generosity and for being a part of our special day. We can’t wait to celebrate with you!</p>
+
+					<p>With love,</p>
+					<p><span class="profile-name">Anthony & Yenia</span></p>
+
+				<div class="line-box"><h2>Our Thanks</h2><hr class="right"></div>
+
+					<table class="entourage">
+						<tr>
+							<td class="parents"><div class="profile"><img alt="pang" src="assets/profiles/pang.jpg"></div></td>
+							<td class="parents"><div class="profile"><img alt="papa" src="assets/profiles/papa.jpg"></div></td>
+						</tr>
+					</table>
+
+					<p>To our wonderful parents &mdash;</p>
+
+					<p>Lorena Jacobo & Mario Angulo and Tuyet-Mai Tran & Ngoc Dao,<p>
+
+					<p>We are incredibly grateful for the endless love, support, and encouragement you have given us throughout our journey. Thank you for your unconditional love and for always being there for us. You are our greatest role models and your guidance has shaped us into the people we are today. We are deeply blessed to have you as our parents and to share this wonderful occasion with you. Thank you for everything you have done and continue to do, we love you more than words can express.</p>
+
+					<p>With love,</p>
+					<p><span class="profile-name">Anthony & Yenia</span></p>
+
+				<a id="travel"></a> <div class="line-box"><hr class="left"><h2>Travel</h2></div>
+					<h3>Airports</h3>
+						<p>San Jose Airport (SJC) is the closests to the event at 15-20 min</p>
+						<p>San Francisco Airport (SFO) is a larger airport so it may be cheaper, but further from the event at 45 min</p>
+					<br>
+					<h3>Hotels</h3>
+						<h4 data-event-codes="Svr">Santa Cruz</h4>
+						<p data-event-codes="Svr">Hotel Paradox in Santa Cruz<br>For your convenience, a block of rooms have been reserved at the Hotel Paradox in Santa Cruz at a discounted rate. Please book a room in our hotel block using this <a class="hyperlink" href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1740696749565&key=GRP&guestreslink2=true&app=resvlink">link</a> by July 01, 2025.</p>
+						<h4 data-event-codes="Svr">Milpitas</h4>
+						<p>There are many hotels around Koi Palace in Milpitas</p>
+
+
+
+				<a id="faq"></a> <div class="line-box"><hr class="left"><h2>FAQ</h2></div>
+
+					<h3>What is the dress code?</h3>
+
+						<p>The dress code for our event is formal. Ladies should wear a floor-length evening gown or your most dressy cocktail dress. Gentlemen should wear a suit with a tie or bow tie. Anthony said regular viet wedding attire 👍</p>
+					<br>
+
+					<h3>Can I bring a plus one?</h3>
+
+						<p>Due to limited space, we can only accommodate those guests formally invited on your wedding invitation. If you received an invitation for a plus one, they would be listed under your name when you RSVP.</p>
+					
+					<br>
+
+					<h3>Can I bring children?</h3>
+
+						<p>We love your little ones but due to our limited space, we respectfully request you only bring children included in the invitation.</p>
+					
+					<br>
+
+					<h3 data-event-codes="Tea">How long does it take to get from the tea ceremony to the reception?</h3> 
+
+						<p data-event-codes="Tea">Driving from the tea ceremony to the reception venue should take approximately 15 without traffic.</p>
+					
+					<br data-event-codes="Tea">
+
+					<h3>I have other questions, how do I contact you?</h3>
+
+						<p>Please send us an e-mail at <a class="hyperlink" target="_blank" href="mailto:yeniaanthony@gmail.com">yeniaanthony@gmail.com</a>. We look forward to having you as part of our special day.</p>
+
+			</div>
+
+	<script>
+		const animationToggle = document.getElementById('animationToggle');
+		const undoLinks = document.querySelectorAll('.hyperlink');
+		const animatedDiv = document.querySelector('.menu-burger__item-list');
+
+		animationToggle.addEventListener('change', () => {
+			animatedDiv.classList.toggle('animate', animationToggle.checked);
+		});
+
+		undoLinks.forEach(link => {
+			link.addEventListener('click', () => {
+				animatedDiv.classList.remove('animate');
+				animationToggle.checked = false;
+			});
+		});
+	</script>
+		
+		<script src="js/script.js"></script>
+		<script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const allowedEventCodesJSON = sessionStorage.getItem('allowedEventCodes');
+            let allowedEvents = [];
+            if (allowedEventCodesJSON) {
+                allowedEvents = JSON.parse(allowedEventCodesJSON);
+            } else {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            function filterContent() {
+                document.querySelectorAll('[data-event-codes]').forEach(sectionDiv => {
+                    const sectionCodesAttr = sectionDiv.dataset.eventCodes;
+                    const sectionCodes = sectionCodesAttr ? sectionCodesAttr.split(' ').map(code => code.trim()) : [];
+
+                    const isSectionAllowed = sectionCodes.some(code => allowedEvents.includes(code));
+                    if (sectionCodes.length === 0 || !isSectionAllowed) {
+                        sectionDiv.style.display = 'none';
+                    } else {
+                        sectionDiv.style.display = 'block';
+
+                        sectionDiv.querySelectorAll('[data-event-code-item]').forEach(item => {
+                            const itemCode = item.dataset.eventCodeItem;
+                            if (itemCode && !allowedEvents.includes(itemCode)) {
+                                item.style.display = 'none';
+                            } else {
+                                item.style.display = '';
+                            }
+                        });
+                    }
+                });
+            }
+	
+            filterContent(); 
+
+            let identifiedGuest = null; 
+
+            window.findGuestAndProceed = function() { 
+                const enteredName = normalizeName(document.getElementById('guest-name-input').value);
+                const noMatchMessage = document.getElementById('no-match-message');
+                const proceedToRsvpDiv = document.getElementById('proceed-to-rsvp-div');
+                const identifiedGuestNameDisplay = document.getElementById('identified-guest-name-display');
+				const guestCountDisplay = document.getElementById('guest-count-display');
+
+
+                noMatchMessage.style.display = 'none';
+                proceedToRsvpDiv.style.display = 'none';
+                identifiedGuest = null;
+
+                const foundGuest = GUEST_LIST.find(guest =>
+                    normalizeName(guest.invitee) === enteredName ||
+                    (Array.isArray(guest.guests) && guest.guests.some(g => normalizeName(g) === enteredName))
+                );
+
+                if (foundGuest) {
+					const guestAllowedForSite = foundGuest.eventCodes.some(code => allowedEvents.includes(code));
+
+                    if (guestAllowedForSite) {
+                        identifiedGuest = foundGuest;
+                        identifiedGuestNameDisplay.textContent = foundGuest.invitee;
+						const totalGuestsForInvite = 1 + (Array.isArray(foundGuest.guests) ? foundGuest.guests.length : 0);
+						if (totalGuestsForInvite > 1) {
+							guestCountDisplay.textContent = ` + ${totalGuestsForInvite - 1} guests`;
+						} else {
+							guestCountDisplay.textContent = ``;
+						}
+
+                        proceedToRsvpDiv.style.display = 'block';
+                    } else {
+                        noMatchMessage.textContent = "Your invitation doesn't grant access to this site.";
+                        noMatchMessage.style.display = 'block';
+                    }
+                } else {
+                    noMatchMessage.textContent = "Name not found. Please check your invitation.";
+                    noMatchMessage.style.display = 'block';
+                }
+            };
+
+            window.goToRsvpPage = function() { 
+                if (identifiedGuest) {
+                    sessionStorage.setItem('currentIdentifiedGuest', JSON.stringify(identifiedGuest));
+                    window.location.href = 'rsvp.html'; 
+                } else {
+                    alert("Please find your invitation first by entering your name.");
+                }
+            };
+        });
+    	</script>
+	
+		</body>
+
+	</html>
