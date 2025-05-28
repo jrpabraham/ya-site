@@ -75,7 +75,7 @@ const GUEST_LIST = [
     },
     {
         invitee: "Dai Tran",
-        guests: ["Tuyet Pham"],
+        guests: ["Tuyet Pham", "Lilly Trieu"],
         eventCodes: ["Tea", "Koi"],
     },
     {
