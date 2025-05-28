@@ -70,7 +70,7 @@ const GUEST_LIST = [
     },
     {
         invitee: "Tien Lu",
-        guests: ["Andrew Deng", "Lilly Trieu"],
+        guests: ["Andrew Deng"],
         eventCodes: ["Tea", "Koi"],
     },
     {
