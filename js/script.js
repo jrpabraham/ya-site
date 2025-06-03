@@ -85,12 +85,12 @@ const GUEST_LIST = [
     },
     {
         invitee: "Elise Abraham",
-        guests: ["Justin Abraham"],
+        guests: ["Justin Abraham", "Tala Tran Abraham"],
         eventCodes: ["Tea", "Koi"],
     },
     {
         invitee: "Victor Tran",
-        guests: ["Becky Tran"],
+        guests: ["Becky Tran", "Huey Tran"],
         eventCodes: ["Tea", "Koi"],
     },
     {
