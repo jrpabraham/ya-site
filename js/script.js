@@ -65,7 +65,7 @@ const GUEST_LIST = [
     },
     {
         invitee: "Xuan Dao",
-        guests: ["Minh Lu", "Kha Lu", "Khiem Lu"],
+        guests: ["Minh Lu", "Kha Lu", "Khiem Lu", "Donna Nguyen"],
         eventCodes: ["Tea", "Koi"],
     },
     {
