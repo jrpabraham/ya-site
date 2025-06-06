@@ -199,11 +199,11 @@ input#img-6:checked ~ .carousel-dots label#img-dot-6 {
 
 input:checked + .slide-container .nav label { display: block; }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 	.carousel {
 		display: none;
 	}
-}
+} */
 
 /******************/
 /* Navigation bar */
@@ -970,5 +970,111 @@ img.story {
     }
     .password-container {
         padding: 20px 30px; /* Smaller padding on small screens */
+    }
+}
+
+/* --- New Bottom Carousel Styles --- */
+
+.carousel-bottom {
+    position: relative; /* Make it part of the normal document flow */
+    width: 100%; /* Take full width of its parent (.page) */
+    height: 1000px; /* Adjust desired height for the bottom carousel */
+    margin: 40px auto; /* Add some vertical margin and center it */
+    overflow: hidden; /* Important for the sliding effect */
+}
+
+/* Override any fixed positioning from the top carousel */
+.carousel-bottom ul.slides {
+    position: relative; /* Ensure it stays within its parent carousel-bottom */
+    height: 100%; /* Take full height of its container */
+    width: 100%; /* Take full width of its container */
+    left: auto; /* Reset any fixed left */
+    top: auto; /* Reset any fixed top */
+}
+
+.carousel-bottom .slide-container {
+    height: 100%; /* Make the slide container take full height of ul.slides */
+    width: 100%; /* Make the slide container take full width of ul.slides */
+    /* No position: absolute needed here if slide-image is absolute relative to ul.slides */
+    /* The li.slide-container must be part of the flow that ul.slides contains */
+}
+
+
+.carousel-bottom .slide-image {
+    position: absolute; /* Keep absolute for stacking and transitions */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0; /* Ensure images start at the left of their container */
+    opacity: 0;
+    transition: opacity .7s ease-in-out;
+    justify-content: center;
+    align-items: center; /* Center image content */
+    display: flex;
+}
+
+.carousel-bottom .slide-image img {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dot controls for the bottom carousel */
+.carousel-dots-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px; /* Position at the bottom of the carousel-bottom container */
+    z-index: 10; /* Ensure dots are above images */
+    text-align: center;
+}
+
+.carousel-dots-bottom .carousel-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--main-text-color); /* Use a darker color for contrast */
+    opacity: 0.5;
+    margin: 0 5px; /* Adjust spacing between dots */
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+/* Active dot styling for the bottom carousel */
+input#img-bottom-1:checked ~ .carousel-dots-bottom label#img-dot-bottom-1,
+input#img-bottom-2:checked ~ .carousel-dots-bottom label#img-dot-bottom-2,
+input#img-bottom-3:checked ~ .carousel-dots-bottom label#img-dot-bottom-3 {
+    opacity: 1;
+    background-color: var(--highlight-color); /* Highlight color for active dot */
+}
+
+/* Show selected slide for bottom carousel */
+input#img-bottom-1:checked ~ .slide-container:nth-of-type(1) .slide-image,
+input#img-bottom-2:checked ~ .slide-container:nth-of-type(2) .slide-image, /* Adjusted nth-of-type */
+input#img-bottom-3:checked ~ .slide-container:nth-of-type(3) .slide-image { /* Adjusted nth-of-type */
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+}
+
+/* Hide the top fixed carousel on smaller screens if it's not already */
+@media (max-width: 768px) {
+    .carousel:not(.carousel-bottom) { /* Target only the top carousel */
+        display: none;
+    }
+    .carousel-bottom {
+		width: auto; /* Make the bottom carousel full width on small screens */
+		height: 70vh; /* Make the bottom carousel full height on small screens */
+		margin: 0;
+    }
+	.carousel-bottom .slide-image img {
+
+	}
+}
+@media (min-width: 768px) {
+    .carousel-bottom { /* Target only the bottom carousel */
+        display: none;
     }
 }

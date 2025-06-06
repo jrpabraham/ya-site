@@ -527,3 +527,76 @@ async function submitRsvp(formData) {
         console.error('Network error:', error);
     }
 }
+
+
+// --- NEW: Carousel Swiping Logic ---
+
+function enableSwipeForCarousel(carouselSelector, radioButtonsName) {
+    const carousel = document.querySelector(carouselSelector);
+    if (!carousel) {
+        console.warn(`Carousel with selector "${carouselSelector}" not found for swipe enable.`);
+        return;
+    }
+
+    let touchstartX = 0;
+    let touchendX = 0;
+    const minSwipeDistance = 50; // Minimum pixels for a horizontal swipe to be registered
+
+    function handleGesture() {
+        const diffX = touchendX - touchstartX;
+
+        if (Math.abs(diffX) > minSwipeDistance) { // Check if it's a significant horizontal swipe
+            const radioButtons = carousel.querySelectorAll(`input[name="${radioButtonsName}"]`);
+            if (radioButtons.length === 0) return;
+
+            let currentIndex = -1;
+            for (let i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].checked) {
+                    currentIndex = i;
+                    break;
+                }
+            }
+
+            if (currentIndex === -1) { // No slide checked, default to first
+                radioButtons[0].checked = true;
+                return;
+            }
+
+            if (diffX < 0) { // Swiped left (next slide)
+                const nextIndex = (currentIndex + 1) % radioButtons.length;
+                radioButtons[nextIndex].checked = true;
+            } else { // Swiped right (previous slide)
+                const prevIndex = (currentIndex - 1 + radioButtons.length) % radioButtons.length;
+                radioButtons[prevIndex].checked = true;
+            }
+        }
+    }
+
+    carousel.addEventListener('touchstart', e => {
+        touchstartX = e.changedTouches[0].screenX;
+    }, { passive: true }); // passive: true to not block scrolling initially
+
+    carousel.addEventListener('touchmove', e => {
+        // We only want to prevent default if it's primarily a horizontal swipe
+        // This is a common heuristic: if horizontal movement is greater than vertical, prevent default
+        const currentTouchX = e.changedTouches[0].screenX;
+        const currentTouchY = e.changedTouches[0].screenY;
+        if (Math.abs(currentTouchX - touchstartX) > Math.abs(currentTouchY - e.changedTouches[0].screenY)) {
+            e.preventDefault(); // Prevent vertical scrolling if it's a horizontal swipe
+        }
+    }, { passive: false }); // passive: false needed to allow preventDefault
+
+    carousel.addEventListener('touchend', e => {
+        touchendX = e.changedTouches[0].screenX;
+        handleGesture();
+    });
+}
+
+// --- Initialize Swiping for your Carousels on DOMContentLoaded ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Top carousel
+    enableSwipeForCarousel('.carousel:not(.carousel-bottom)', 'radio-buttons');
+
+    // Bottom carousel
+    enableSwipeForCarousel('.carousel-bottom', 'radio-buttons-bottom');
+});
