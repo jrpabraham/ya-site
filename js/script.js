@@ -340,8 +340,8 @@ const GUEST_LIST = [
         eventCodes: ["Svr", "Tea", "Koi"],
     },
     {
-        invitee: "Alondra Page",
-        guests: ["Dakota Page", "Niko Page"],
+        invitee: "Londra Page",
+        guests: ["Dakota Page", "Nico Page"],
         eventCodes: ["Svr", "Tea", "Koi"],
     },
     {
