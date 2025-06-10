@@ -108,11 +108,11 @@ const GUEST_LIST = [
         guests: ["Ashley Tran", "Hayley Tran", "Jonathan Tran"],
         eventCodes: ["Tea", "Koi"],
     },
-    {
-        invitee: "Trang Lam",
-        guests: ["Ashley Tran", "Hayley Tran", "Jonathan Tran"],
-        eventCodes: ["Tea", "Koi"],
-    },
+    // {
+    //     invitee: "Trang Lam",
+    //     guests: ["Ashley Tran", "Hayley Tran", "Jonathan Tran"],
+    //     eventCodes: ["Tea", "Koi"],
+    // },
     {
         invitee: "Pham Ngoc Huong",
         guests: [],
@@ -333,6 +333,24 @@ const GUEST_LIST = [
         guests: ["KaiWing Lau"],
         eventCodes: ["Koi"],
     },
+
+    {
+        invitee: "Lorena Jacobo",
+        guests: ["Mario Angulo"],
+        eventCodes: ["Svr", "Tea", "Koi"],
+    },
+    {
+        invitee: "Alondra Page",
+        guests: ["Dakota Page", "Niko Page"],
+        eventCodes: ["Svr", "Tea", "Koi"],
+    },
+    {
+        invitee: "Karina Angulo",
+        guests: ["Ivan Delgado"],
+        eventCodes: ["Svr", "Tea", "Koi"],
+    },
+
+    // Friends
     {
         invitee: "Nuna Cruz",
         guests: ["Eric Cruz"],
@@ -360,7 +378,8 @@ const GUEST_LIST = [
     },
     {
         invitee: "Ricky Lam",
-        guests: ["Trisha Nguyen"],
+        // guests: ["Trisha Nguyen"],
+        guests: [],
         eventCodes: ["Svr", "Tea", "Koi"],
     },
     {
@@ -479,13 +498,13 @@ const GUEST_LIST = [
         eventCodes: ["Koi"],
     },
     {
-        invitee: "Ana Peccin", // TODO get Ana's last name
+        invitee: "Ana Peccin", 
         guests: ["Guest"],
         eventCodes: ["Koi"],
     },
     {
-        invitee: "Tuan ", // TODO get Tuan's last name
-        guests: ["K"], // TODO get K's last name
+        invitee: "Tuan Van", 
+        guests: ["Khanh Nguyen"], 
         eventCodes: ["Koi"],
     },
    
