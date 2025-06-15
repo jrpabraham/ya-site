@@ -330,7 +330,7 @@ const GUEST_LIST = [
     },
     {
         invitee: "Yen Lu",
-        guests: ["KaiWing Lau"],
+        guests: ["KaiWing Lau", "Sam Lau"],
         eventCodes: ["Koi"],
     },
 
