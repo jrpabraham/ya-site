@@ -135,7 +135,7 @@ const GUEST_LIST = [
     },
     {
         invitee: "Hieu Pham",
-        guests: ["Tuyet Lan Lu"],
+        guests: ["Tuyet Lan Luu"],
         eventCodes: ["Tea", "Koi"],
     },
     {
@@ -376,8 +376,18 @@ const GUEST_LIST = [
     },
     {
         invitee: "Alba Beltran",
-        guests: ["Chuy Beltran", "Guest"],
+        guests: [],
         eventCodes: ["Tea", "Koi"],
+    },
+    {
+        invitee: "Chuy Beltran",
+        guests: ["Guest"],
+        eventCodes: ["Koi"],
+    },
+    {
+        invitee: "Luis Leon",
+        guests: ["Guest"],
+        eventCodes: ["Koi"],
     },
     {
         invitee: "Marilu Jacobo",
@@ -385,40 +395,86 @@ const GUEST_LIST = [
         eventCodes: ["Tea", "Koi"],
     },
     {
-        invitee: "Oscar",
+        invitee: "Oscar Lara",
         guests: [""],
-        eventCodes: ["Tea", "Koi"],
+        eventCodes: ["Koi"],
     },
     {
-        invitee: "Kiki Jacobo",
+        invitee: "Wilfredo Jacobo",
         guests: ["Guest"],
-        eventCodes: ["Tea", "Koi"],
+        eventCodes: ["Koi"],
+    },
+    {
+        invitee: "Christopher Jacobo",
+        guests: ["Guest"],
+        eventCodes: ["Koi"],
     },
     {
         invitee: "Lulu Jacobo",
         guests: ["Temo Pena"],
-        eventCodes: ["Tea", "Koi"],
+        eventCodes: ["Koi"],
     },
     {
         invitee: "Enrique Jacobo",
         guests: ["Guest"],
-        eventCodes: ["Tea", "Koi"],
+        eventCodes: ["Koi"],
     },
     {
         invitee: "Pablo Jacobo",
         guests: ["Guest"],
-        eventCodes: ["Tea", "Koi"],
+        eventCodes: ["Koi"],
     },
     {
         invitee: "Joeth Jacobo",
         guests: ["Guest"],
-        eventCodes: ["Tea", "Koi"],
+        eventCodes: ["Koi"],
     },
     {
-        invitee: "",
-        guests: [""],
-        eventCodes: ["Tea", "Koi"],
+        invitee: "Diana Maria Jacobo",
+        guests: ["Guest"],
+        eventCodes: ["Koi"],
     },
+    {
+        invitee: "Claudia Jacobo",
+        guests: [""],
+        eventCodes: ["Koi"],
+    },
+    {
+        invitee: "Marcelo Angulo",
+        guests: ["Guest"],
+        eventCodes: ["Koi"],
+    },
+    {
+        invitee: "Isabel Angulo",
+        guests: ["Guest"],
+        eventCodes: ["Koi"],
+    },
+    {
+        invitee: "Adriana Sainz",
+        guests: ["Guest"],
+        eventCodes: ["Koi"],
+    },
+    {
+        invitee: "Javier Sainz",
+        guests: [""],
+        eventCodes: ["Koi"],
+    },
+    {
+        invitee: "Maria Guadalupe Angulo",
+        guests: ["Federico Castaneda"],
+        eventCodes: ["Koi"],
+    },
+    {
+        invitee: "Luciana Verdugo",
+        guests: ["Guest"],
+        eventCodes: ["Koi"],
+    },
+    {
+        invitee: "Irene Angulo",
+        guests: ["Guest"],
+        eventCodes: ["Koi"],
+    },
+
 
     // Friends
     {
