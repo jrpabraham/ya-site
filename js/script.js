@@ -519,8 +519,8 @@ const GUEST_LIST = [
         eventCodes: ["Svr", "Tea", "Koi"],
     },
     {
-        invitee: "Megan Meitsen",
-        guests: ["Bryce Meitsen"],
+        invitee: "Megan Liu",
+        guests: ["Bryce Kobayashi"],
         eventCodes: ["Svr", "Tea", "Koi"],
     },
     {
